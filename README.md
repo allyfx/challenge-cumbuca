@@ -3,7 +3,7 @@
 
 [Challenge](https://github.com/appcumbuca/desafios/blob/master/desafio-mobile.md) for Senior React Native Developer role at Cumbuca. I'm Ally, and you can find more information about this project in this readme.
 
-[Se preferir, leia em português ;)](https://github.com/allyfx/challenge-cumbuca/github/README-PT.md)
+[Se preferir, leia em português ;)](https://github.com/allyfx/challenge-cumbuca/blob/master/github/README-PT.md)
 
 ## Run Locally
 
