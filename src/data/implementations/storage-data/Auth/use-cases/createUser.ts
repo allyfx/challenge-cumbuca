@@ -42,6 +42,9 @@ export async function CreateUser({ cpf, password }: IProps): Promise<IResponse> 
 
   return {
     status: 200,
-    data: newUser
+    data: {
+      ...newUser,
+      password: null
+    }
   }
 }

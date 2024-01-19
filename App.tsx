@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { Routes } from './src/libs/Router';
+import { StatusBar } from 'expo-status-bar'
+import { Routes } from './src/libs/Router'
 
 export default function App() {
   return (
@@ -8,5 +8,5 @@ export default function App() {
       
       <StatusBar style="auto" />
     </>
-  );
+  )
 }

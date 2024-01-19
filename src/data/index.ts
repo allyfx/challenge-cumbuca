@@ -1,3 +1,3 @@
-import { StorageData } from "./implementations/storage-data";
+import { StorageData } from "./implementations/storage-data"
 
 export default new StorageData()

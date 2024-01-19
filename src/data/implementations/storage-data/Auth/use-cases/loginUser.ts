@@ -1,10 +1,10 @@
-import Storage from "../../../../../libs/Storage";
+import Storage from "../../../../../libs/Storage"
 
-import { User } from "../../../../models/User";
+import { User } from "../../../../models/User"
 
 import { UserConstants } from "../../../../constants/User"
 
-import { IResponse } from "../../../../dtos/data.dto";
+import { IResponse } from "../../../../dtos/data.dto"
 
 interface IProps {
   user: User
@@ -29,7 +29,10 @@ export async function LoginUser({ user, password }: IProps): Promise<IResponse> 
 
     return {
       status: 200,
-      data: user
+      data: {
+        ...user,
+        password: null
+      }
     }
   }
 

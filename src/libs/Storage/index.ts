@@ -1,3 +1,3 @@
-import { AsyncStorage } from "./implementations/AsyncStorage";
+import { AsyncStorage } from "./implementations/AsyncStorage"
 
-export default new AsyncStorage();
+export default new AsyncStorage()
