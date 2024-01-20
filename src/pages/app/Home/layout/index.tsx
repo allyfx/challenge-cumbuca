@@ -1,7 +1,9 @@
+import { SafeAreaView, Text } from "react-native"
+
 export function Layout() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <SafeAreaView>
+      <Text>Home</Text>
+    </SafeAreaView>
   )
 }

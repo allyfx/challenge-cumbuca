@@ -1,7 +1,5 @@
 import { createContext, useState, useEffect } from "react"
 
-import { useNavigation } from "../../libs/Router"
-
 import Storage from "../../libs/Storage"
 import { AuthConstants } from "./constants/Auth"
 
@@ -14,8 +12,6 @@ import { ILoginData } from "../../data/dtos/data.dto"
 export const AuthContext = createContext({} as IAuthContext)
 
 export default function AuthProvider({ children }: IProviderProps) {
-  const { navigate } = useNavigation()
-
   const [user, setUser] = useState<User>()
 
   async function logIn({ cpf, password }: ILoginData) {
@@ -42,7 +38,6 @@ export default function AuthProvider({ children }: IProviderProps) {
 
       if (loggedUser) {
         setUser(JSON.parse(loggedUser))
-        navigate("Home")
       }
     }
 

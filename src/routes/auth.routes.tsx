@@ -1,4 +1,4 @@
-import Login from "../app/auth/Login"
+import Login from "../pages/auth/Login"
 
 import { IRoute } from "../libs/Router/dtos/router.dto"
 
