@@ -6,6 +6,7 @@ import { Layout } from "./layout"
 export interface IInputProps extends TextInputProps {
   type?: "text" | "password"
   error?: string
+  fullWidth?: boolean
 }
 
 export function Input({ ...props }: IInputProps)  {

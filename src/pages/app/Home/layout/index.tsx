@@ -1,15 +1,25 @@
-import { SafeAreaView } from "react-native"
+import { TouchableOpacity, View } from "react-native"
 
-import { Button } from "../../../../components/Button"
+import Feather from '@expo/vector-icons/Feather'
+
+import { Input } from "../../../../components/Input"
+
+import styles from "./styles"
 
 interface IProps {
-  logoutUser: () => Promise<void>
+  navigateToConfig: () => void
 }
 
-export function Layout({ logoutUser }: IProps) {
+export function Layout({ navigateToConfig }: IProps) {
   return (
-    <SafeAreaView>
-      <Button title="LogOut" onPress={logoutUser} />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Input placeholder="Pesquisa..." />
+
+        <TouchableOpacity activeOpacity={0.8} onPress={navigateToConfig}>
+          <Feather name="menu" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
+    </View>
   )
 }

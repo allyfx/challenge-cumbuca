@@ -12,7 +12,7 @@ import { Layout } from "./layout"
 import { IErrors } from "./dto"
 
 export default function Login() {
-  const { logIn, user, logInUsingBiometry } = useAuth()
+  const { logIn, user, logInUsingBiometry, fetchedInfos } = useAuth()
   const { navigate } = useNavigation()
 
   const [cpf, setCpf] = useState('')
@@ -56,10 +56,10 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       navigate("Home")
-    } else {
+    } else if (fetchedInfos) {
       tryToLoginUsingBiometry()
     }
-  }, [user])
+  }, [user, fetchedInfos])
 
   return (
     <Layout

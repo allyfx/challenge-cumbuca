@@ -16,6 +16,7 @@ export const AuthContext = createContext({} as IAuthContext)
 
 export default function AuthProvider({ children }: IProviderProps) {
   const [user, setUser] = useState<User>()
+  const [fetchedInfos, setFetchedInfos] = useState(false);
 
   async function logIn({ cpf, password }: ILoginData) {
     biometryAlert()
@@ -80,6 +81,8 @@ export default function AuthProvider({ children }: IProviderProps) {
       if (loggedUser) {
         setUser(JSON.parse(loggedUser))
       }
+
+      setFetchedInfos(true)
     }
 
     loadStorageData()
@@ -90,7 +93,8 @@ export default function AuthProvider({ children }: IProviderProps) {
       user,
       logIn,
       logOut,
-      logInUsingBiometry
+      logInUsingBiometry,
+      fetchedInfos
     }}>
       {children}
     </AuthContext.Provider>

@@ -1,9 +1,13 @@
-import { useAuth } from "../../../contexts/Auth/hook"
+import { useNavigation } from "../../../libs/Router"
 
 import { Layout } from "./layout"
 
 export default function Home() {
-  const { logOut } = useAuth()
+  const { navigate } = useNavigation()
 
-  return <Layout logoutUser={logOut} />
+  function navigateToConfig() {
+    navigate("Config")
+  }
+
+  return <Layout navigateToConfig={navigateToConfig} />
 }

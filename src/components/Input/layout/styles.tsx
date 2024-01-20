@@ -4,18 +4,18 @@ import { horizontalScale, moderateScale, verticalScale } from "../../../helpers/
 
 export default StyleSheet.create({
   container: {
+    flex: 1,
     width: "100%",
-    flexDirection: 'column',
+    maxHeight: verticalScale(52),
   },
   textWrapper: {
-    width: "100%",
     position: 'relative',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   input: {
-    width: "100%",
+    flex: 1,
     height: verticalScale(50),
     padding: moderateScale(10),
     borderRadius: 5,

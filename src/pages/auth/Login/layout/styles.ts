@@ -9,7 +9,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: horizontalScale(16),
-    rowGap: verticalScale(12)
+    rowGap: verticalScale(12),
+    marginTop: "20%",
   },
   title: {
     fontSize: moderateScale(24),
