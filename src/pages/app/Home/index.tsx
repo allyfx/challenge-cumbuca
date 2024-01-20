@@ -1,5 +1,9 @@
+import { useAuth } from "../../../contexts/Auth/hook"
+
 import { Layout } from "./layout"
 
 export default function Home() {
-  return <Layout />
+  const { logOut } = useAuth()
+
+  return <Layout logoutUser={logOut} />
 }

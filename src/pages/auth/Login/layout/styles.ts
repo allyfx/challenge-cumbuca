@@ -19,5 +19,11 @@ export default StyleSheet.create({
   subtitle: {
     fontSize: moderateScale(16),
     marginBottom: verticalScale(16)
+  },
+  alert: {
+    width: moderateScale(280),
+    fontSize: moderateScale(14),
+    marginBottom: verticalScale(8),
+    textAlign: 'center'
   }
 })

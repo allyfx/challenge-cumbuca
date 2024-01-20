@@ -5,7 +5,8 @@ import { CreateUser } from "./use-cases/createUser"
 
 import { UserConstants } from "../../../constants/User"
 
-import { ILoginData, IResponse } from "../../../dtos/data.dto"
+import { ILoginData } from "../../../dtos/auth.dto"
+import { IResponse } from "../../../dtos/data.dto"
 
 export const Auth = {
   async login({ cpf, password }: ILoginData): Promise<IResponse> {

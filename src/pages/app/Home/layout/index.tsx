@@ -1,9 +1,15 @@
-import { SafeAreaView, Text } from "react-native"
+import { SafeAreaView } from "react-native"
 
-export function Layout() {
+import { Button } from "../../../../components/Button"
+
+interface IProps {
+  logoutUser: () => Promise<void>
+}
+
+export function Layout({ logoutUser }: IProps) {
   return (
     <SafeAreaView>
-      <Text>Home</Text>
+      <Button title="LogOut" onPress={logoutUser} />
     </SafeAreaView>
   )
 }

@@ -1,21 +1,20 @@
 import { ReactNode, useEffect } from "react"
 
 import { useAuth } from "../../../contexts/Auth/hook"
-import { useNavigation } from ".."
 
 interface Props {
   children: ReactNode
+  navigate?: (route: string) => void
 }
 
-export function ProtectedRoute({ children }: Props) {
+export function ProtectedRoute({ children, navigate }: Props) {
   const { user } = useAuth()
-  const { navigate } = useNavigation()
 
   useEffect(() => {
     if (!user) {
-      navigate("Login")
+      navigate && navigate("Login")
     }
-  }, [])
+  }, [user])
 
   return children
 }

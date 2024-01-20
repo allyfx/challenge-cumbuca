@@ -1,7 +1,5 @@
-export interface ILoginData {
-  cpf: string
-  password: string
-}
+import { ILoginData } from "./auth.dto"
+import { IGetUserData } from "./user.dto"
 
 export interface IResponse {
   error?: string
@@ -12,5 +10,8 @@ export interface IResponse {
 export interface IDataDto {
   Auth: {
     login: (data: ILoginData) => Promise<IResponse>
+  },
+  User: {
+    getUserData: (data: IGetUserData) => Promise<IResponse>
   }
 }

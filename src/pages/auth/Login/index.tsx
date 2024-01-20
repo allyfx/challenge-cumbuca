@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react"
+
 import { useNavigation } from "../../../libs/Router"
 import { useAuth } from "../../../contexts/Auth/hook"
 
 import { validateLoginForm } from "./use-cases/validateLoginForm"
+
+import { checkUseBiometry } from "../../../contexts/Auth/use-cases/checkUseBiometry"
 
 import { Layout } from "./layout"
 
 import { IErrors } from "./dto"
 
 export default function Login() {
-  const { logIn, user } = useAuth()
+  const { logIn, user, logInUsingBiometry } = useAuth()
   const { navigate } = useNavigation()
 
   const [cpf, setCpf] = useState('')
@@ -42,9 +45,19 @@ export default function Login() {
     }
   }
 
+  async function tryToLoginUsingBiometry() {
+    const useBiometry = await checkUseBiometry()
+
+    if (useBiometry) {
+      await logInUsingBiometry()
+    }
+  }
+
   useEffect(() => {
     if (user) {
       navigate("Home")
+    } else {
+      tryToLoginUsingBiometry()
     }
   }, [user])
 

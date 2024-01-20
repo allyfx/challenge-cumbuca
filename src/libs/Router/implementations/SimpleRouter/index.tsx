@@ -1,5 +1,7 @@
 import { useState, useMemo, createContext } from "react"
 
+import { ProtectedRoute } from "../../components/ProtectedRoute"
+
 import { IRoute } from "../../dtos/router.dto"
 import { IRouterContext } from "./dto"
 
@@ -47,7 +49,11 @@ export function SimpleRouter({ routes, startPage }: IProps) {
       navigate,
       goBack
     }}>
-      {Page?.component}
+      {Page?.protected ? (
+        <ProtectedRoute navigate={navigate}>
+          {Page?.component}
+        </ProtectedRoute>
+      ) : Page?.component}
     </routerContext.Provider>
   )
 }
