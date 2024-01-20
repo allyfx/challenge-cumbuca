@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigation } from "../../../libs/Router"
 
 import { validateLoginForm } from "./use-cases/validateLoginForm"
 
@@ -9,6 +10,8 @@ import { Layout } from "./layout"
 import { IErrors } from "./dto"
 
 export default function Login() {
+  const { navigate } = useNavigation()
+
   const [cpf, setCpf] = useState('')
   const [password, setPassword] = useState('')
 
@@ -32,7 +35,7 @@ export default function Login() {
     })
 
     if (response.status === 200) {
-      console.log(response.data)
+      navigate("Home")
     } else {
       setErrors({
         cpf: "CPF ou Senha inválidos",

@@ -2,7 +2,7 @@ import { useContext } from "react"
 
 import { routerContext } from "."
 
-export function useRouter() {
+export function useSimpleRouter() {
   const router = useContext(routerContext)
   return router
 }
