@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigation } from "../../../libs/Router"
+import { useAuth } from "../../../contexts/Auth/hook"
 
 import { validateLoginForm } from "./use-cases/validateLoginForm"
 
@@ -10,6 +11,7 @@ import { Layout } from "./layout"
 import { IErrors } from "./dto"
 
 export default function Login() {
+  const { logIn } = useAuth()
   const { navigate } = useNavigation()
 
   const [cpf, setCpf] = useState('')
@@ -29,7 +31,7 @@ export default function Login() {
 
     if (!isFormValid) return
 
-    const response = await data.Auth.login({
+    const response = await logIn({
       cpf,
       password
     })
