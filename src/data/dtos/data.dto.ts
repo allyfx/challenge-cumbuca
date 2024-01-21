@@ -1,4 +1,5 @@
 import { ILoginData } from "./auth.dto"
+import { IChangeProductQuantityData, ICreateProductData } from "./product.dto"
 import { IGetUserData } from "./user.dto"
 
 export interface IResponse {
@@ -13,5 +14,11 @@ export interface IDataDto {
   },
   User: {
     getUserData: (data: IGetUserData) => Promise<IResponse>
+  },
+  Product: {
+    create: (data: ICreateProductData) => Promise<IResponse>
+    getUserProducts: (userId: string) => Promise<IResponse>
+    changeProductQuantity: (data: IChangeProductQuantityData) => Promise<IResponse>
+    remove: (productId: number) => Promise<IResponse>
   }
 }
