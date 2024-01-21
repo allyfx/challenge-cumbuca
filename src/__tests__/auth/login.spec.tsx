@@ -1,8 +1,16 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react-native'
 
-import Login from '../../app/auth/Login';
+import AuthProvider from '../../contexts/Auth'
+import Login from '../../pages/auth/Login'
 
-import data from '../../data';
+import data from '../../data'
+
+import { useNavigation } from '../../libs/Router'
+jest.mock('../../libs/Router', () => ({ useNavigation: () => {
+  return {
+    navigate: jest.fn()
+  }
+}}))
 
 describe('Login Page', () => {
   beforeAll(async () => {
@@ -12,8 +20,8 @@ describe('Login Page', () => {
     })
   })
 
-  beforeEach(() => {
-    render(<Login />)
+  beforeEach(async () => {
+    await waitFor(() => render(<AuthProvider><Login /></AuthProvider>))
   })
 
   it('should login with success', async () => {
