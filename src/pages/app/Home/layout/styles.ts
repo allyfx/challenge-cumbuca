@@ -22,14 +22,18 @@ export default StyleSheet.create({
     marginBottom: verticalScale(8)
   },
   forms: {
-    flex: 1,
-    gap: verticalScale(12)
+    maxHeight: verticalScale(210),
+    gap: verticalScale(16),
+    marginBottom: verticalScale(24)
   },
   formsRow: {
+    marginTop: verticalScale(24),
     flexDirection: 'row',
     gap: horizontalScale(16)
   },
   productList: {
-    flex: 1,
-  },
+    gap: verticalScale(16),
+    paddingBottom: '12%',
+    marginTop: verticalScale(8)
+  }
 })

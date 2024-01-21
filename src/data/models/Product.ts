@@ -1,8 +1,8 @@
 export interface Product {
   id: number
   name: string
-  stock: number
-  unit_price: number
+  quantity: number
+  price: number
   total_price: number
   user_id: string
 }

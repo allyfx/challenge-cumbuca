@@ -7,7 +7,7 @@ import { ProductConstants } from "../../../../constants/Product"
 import { ICreateProductData } from "../../../../dtos/product.dto"
 
 export async function CreateProduct(data: ICreateProductData) {
-  const { name, quantity, userId } = data
+  const { name, quantity, price, userId } = data
 
   const dataValidationError = validateData(data)
 
@@ -20,7 +20,9 @@ export async function CreateProduct(data: ICreateProductData) {
   const newProducts = [...products, {
     id: productId,
     name,
+    price,
     quantity,
+    total_price: price * quantity,
     user_id: userId
   }]
 

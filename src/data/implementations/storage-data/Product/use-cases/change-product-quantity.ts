@@ -32,6 +32,8 @@ export async function ChangeProductQuantity(data: IChangeProductQuantityData) {
     product.quantity -= 1
   }
 
+  product.total_price = product.price * product.quantity
+
   products[productIndex] = product
 
   await Storage.set(ProductConstants.PRODUCTS_KEY, JSON.stringify(products))
