@@ -42,7 +42,6 @@ export default StyleSheet.create({
     gap: horizontalScale(16)
   },
   productList: {
-    gap: verticalScale(16),
     paddingBottom: '12%',
     marginTop: verticalScale(16)
   }

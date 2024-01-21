@@ -127,6 +127,7 @@ export default function Home() {
       setSearchText={setSearchText}
       orderBy={orderBy}
       setOrderBy={changeOrderBy}
+      setProducts={setProducts}
     />
   )
 }

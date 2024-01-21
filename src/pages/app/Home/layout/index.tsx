@@ -1,5 +1,9 @@
 import { TouchableOpacity, View, ScrollView, Text, FlatList } from "react-native"
 
+import DraggableFlatList, {
+  ScaleDecorator,
+} from "react-native-draggable-flatlist"
+
 import Feather from '@expo/vector-icons/Feather'
 
 import { Input } from "../../../../components/Input"
@@ -28,6 +32,7 @@ interface IProps {
   setSearchText: (text: string) => void
   orderBy?: OrderBy
   setOrderBy: (value: OrderBy) => void
+  setProducts: (products: Product[]) => void
 }
 
 export function Layout({
@@ -42,7 +47,8 @@ export function Layout({
   searchText,
   setSearchText,
   setOrderBy,
-  orderBy
+  orderBy,
+  setProducts
 }: IProps) {
   return (
     <View style={styles.container}>
@@ -120,16 +126,22 @@ export function Layout({
         />
       </ScrollView>
 
-      <FlatList
+      <DraggableFlatList
+        containerStyle={{flex: 1}}
         contentContainerStyle={styles.productList}
         data={products}
+        onDragEnd={({ data }) => setProducts(data)}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => (
-          <ProductItem
-            product={item}
-            onChangeQuantity={onChangeProductQuantity}
-            onDelete={onDeleteProduct}
-          />
+        showsHorizontalScrollIndicator
+        renderItem={({ item, drag }) => (
+          <ScaleDecorator activeScale={1.02}>
+            <ProductItem
+              product={item}
+              onLongPress={drag}
+              onChangeQuantity={onChangeProductQuantity}
+              onDelete={onDeleteProduct}
+            />
+          </ScaleDecorator>
         )}
       />
     </View>

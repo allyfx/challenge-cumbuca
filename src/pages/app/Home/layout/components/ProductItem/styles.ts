@@ -11,6 +11,7 @@ export default StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: moderateScale(8),
     padding: moderateScale(16),
+    marginBottom: moderateScale(16),
   },
   actions: {
     flexDirection: 'row',

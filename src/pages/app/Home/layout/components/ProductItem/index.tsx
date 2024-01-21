@@ -12,11 +12,12 @@ interface IProps {
   product: Product
   onChangeQuantity: (productId: number, type: "add" | "remove") => void
   onDelete: (productId: number) => void
+  onLongPress: () => void
 }
 
-export function ProductItem({ product, onChangeQuantity, onDelete }: IProps) {
+export function ProductItem({ product, onChangeQuantity, onDelete, onLongPress }: IProps) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onLongPress={onLongPress} activeOpacity={0.8}>
       <View>
         <Text>Nome: {product.name}</Text>
         <Text>Preço p/ unidade: {Masks.Currency(product.price)}</Text>
@@ -39,6 +40,6 @@ export function ProductItem({ product, onChangeQuantity, onDelete }: IProps) {
           <Feather name="trash-2" size={28} color="red" />
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
