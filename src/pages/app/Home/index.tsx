@@ -8,6 +8,7 @@ import { Product } from "../../../data/models/Product"
 
 import { validateFormData } from "./use-cases/validate-form-data"
 import { SearchProducts } from "./use-cases/search-products"
+import { OrderBy, OrderProducts } from "./use-cases/order-products"
 
 import data from "../../../data"
 
@@ -20,9 +21,19 @@ export default function Home() {
   const { user } = useAuth()
 
   const [searchText, setSearchText] = useState('')
+  const [orderBy, setOrderBy] = useState<OrderBy>()
+
   const [createProductFormData, setCreateProductFormData] = useState<ICreateProductFormData>({})
   const [errors, setErrors] = useState<IErrors>()
   const [products, setProducts] = useState<Product[]>([])
+
+  function changeOrderBy(value: OrderBy) {
+    if (value === orderBy) {
+      setOrderBy(undefined)
+    } else {
+      setOrderBy(value)
+    }
+  }
 
   function changeCreateProductFormData(key: keyof ICreateProductFormData, value: any) {
     setCreateProductFormData({
@@ -107,11 +118,13 @@ export default function Home() {
       changeCreateProductFormData={changeCreateProductFormData}
       onSubmitCreateProduct={onSubmitCreateProduct}
       errors={errors}
-      products={SearchProducts(searchText, products)}
+      products={OrderProducts({ orderBy, products: SearchProducts(searchText, products) })}
       onDeleteProduct={onDeleteProduct}
       onChangeProductQuantity={onChangeProductQuantity}
       searchText={searchText}
       setSearchText={setSearchText}
+      orderBy={orderBy}
+      setOrderBy={changeOrderBy}
     />
   )
 }

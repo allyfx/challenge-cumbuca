@@ -1,10 +1,13 @@
-import { TouchableOpacity, View, Text, FlatList } from "react-native"
+import { TouchableOpacity, View, ScrollView, Text, FlatList } from "react-native"
 
 import Feather from '@expo/vector-icons/Feather'
 
 import { Input } from "../../../../components/Input"
 import { Button } from "../../../../components/Button"
+import { SelectButton } from "../../../../components/SelectButton"
 import { ProductItem } from "./components/ProductItem"
+
+import { OrderBy } from "../use-cases/order-products"
 
 import { Product } from "../../../../data/models/Product"
 
@@ -23,6 +26,8 @@ interface IProps {
   onDeleteProduct: (productId: number) => void
   searchText: string
   setSearchText: (text: string) => void
+  orderBy?: OrderBy
+  setOrderBy: (value: OrderBy) => void
 }
 
 export function Layout({
@@ -35,7 +40,9 @@ export function Layout({
   onChangeProductQuantity,
   onDeleteProduct,
   searchText,
-  setSearchText
+  setSearchText,
+  setOrderBy,
+  orderBy
 }: IProps) {
   return (
     <View style={styles.container}>
@@ -81,6 +88,35 @@ export function Layout({
       </View>
 
       <Text style={styles.title}>Produtos</Text>
+
+      <Text style={styles.subtitle}>Ordenar por:</Text>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.order}
+      >
+        <SelectButton
+          title="Nome"
+          selected={orderBy === "name"}
+          onPress={() => setOrderBy("name")}
+        />
+        <SelectButton
+          title="Preço"
+          selected={orderBy === "price"}
+          onPress={() => setOrderBy("price")}
+        />
+        <SelectButton
+          title="Quantidade"
+          selected={orderBy === "quantity"}
+          onPress={() => setOrderBy("quantity")}
+        />
+        <SelectButton
+          title="Preço Total"
+          selected={orderBy === "total_price"}
+          onPress={() => setOrderBy("total_price")}
+        />
+      </ScrollView>
 
       <FlatList
         contentContainerStyle={styles.productList}

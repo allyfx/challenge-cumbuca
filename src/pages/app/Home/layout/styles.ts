@@ -21,13 +21,23 @@ export default StyleSheet.create({
     color: '#000',
     marginBottom: verticalScale(8)
   },
+  subtitle: {
+    fontSize: moderateScale(14),
+    fontWeight: '400',
+    color: '#000',
+    marginBottom: verticalScale(8)
+  },
+  order: {
+    flexDirection: 'row',
+    height: verticalScale(88),
+  },
   forms: {
     maxHeight: verticalScale(210),
     gap: verticalScale(16),
-    marginBottom: verticalScale(24)
+    marginVertical: verticalScale(24)
   },
   formsRow: {
-    marginTop: verticalScale(24),
+    marginTop: verticalScale(20),
     flexDirection: 'row',
     gap: horizontalScale(16)
   },
