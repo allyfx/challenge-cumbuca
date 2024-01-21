@@ -5,7 +5,7 @@ import { Button } from "../../../../components/Button"
 
 import { IErrors } from "../dto"
 
-import styles from "./styles"
+import generateStyles from "./styles"
 
 interface IProps {
   onSubmit: () => Promise<void>
@@ -24,6 +24,8 @@ export function Layout({
   changeCpf,
   errors
 }: IProps) {
+  const styles = generateStyles()
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Boas vindas!</Text>

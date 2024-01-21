@@ -1,22 +1,18 @@
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
 import { LogBox } from "react-native"
-import { StatusBar } from 'expo-status-bar'
 
 import { Routes } from './src/libs/Router'
 
 import AuthProvider from './src/contexts/Auth'
+import ThemeProvider from './src/contexts/Theme';
 
 LogBox.ignoreLogs(['Require cycle:'])
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <ThemeProvider>
       <AuthProvider>
-        <StatusBar style="auto" />
-        
         <Routes />
       </AuthProvider>
-    </GestureHandlerRootView>
+    </ThemeProvider>
   )
 }

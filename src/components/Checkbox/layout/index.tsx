@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { useTheme } from '../../../contexts/Theme/hook'
 
 import Feather from '@expo/vector-icons/Feather'
 
@@ -8,11 +8,13 @@ interface IProps {
 }
 
 export function Layout({ selected, onChange }: IProps) {
+  const { theme } = useTheme()
+
   return (
     <Feather
       name={selected ? "check-square" : "square"}
       size={24}
-      color="#FFD74F"
+      color={theme.primary}
       onPress={onChange}
     />
   )

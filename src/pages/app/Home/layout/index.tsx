@@ -1,8 +1,10 @@
-import { TouchableOpacity, View, ScrollView, Text, FlatList } from "react-native"
+import { TouchableOpacity, View, ScrollView, Text } from "react-native"
 
 import DraggableFlatList, {
   ScaleDecorator,
 } from "react-native-draggable-flatlist"
+
+import { useTheme } from "../../../../contexts/Theme/hook"
 
 import Feather from '@expo/vector-icons/Feather'
 
@@ -17,7 +19,7 @@ import { Product } from "../../../../data/models/Product"
 
 import { ICreateProductFormData, IErrors } from "../dto"
 
-import styles from "./styles"
+import generateStyles from "./styles"
 
 interface IProps {
   navigateToConfig: () => void
@@ -50,6 +52,9 @@ export function Layout({
   orderBy,
   setProducts
 }: IProps) {
+  const styles = generateStyles()
+  const { theme } = useTheme()
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -60,7 +65,7 @@ export function Layout({
         />
 
         <TouchableOpacity activeOpacity={0.8} onPress={navigateToConfig}>
-          <Feather name="menu" size={24} color="black" />
+          <Feather name="menu" size={24} color={theme.black} />
         </TouchableOpacity>
       </View>
 
