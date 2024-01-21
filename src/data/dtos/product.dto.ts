@@ -8,4 +8,5 @@ export interface ICreateProductData {
 export interface IChangeProductQuantityData {
   productId: number
   type: "add" | "remove"
+  userId: string
 }

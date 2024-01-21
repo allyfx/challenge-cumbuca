@@ -71,7 +71,8 @@ export default function Home() {
   async function onChangeProductQuantity(productId: number, type: "add" | "remove") {
     const response = await data.Product.changeProductQuantity({
       productId,
-      type
+      type,
+      userId: user?.id!
     })
 
     if (response.status === 200) {

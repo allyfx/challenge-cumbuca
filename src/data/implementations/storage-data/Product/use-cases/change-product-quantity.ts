@@ -40,6 +40,6 @@ export async function ChangeProductQuantity(data: IChangeProductQuantityData) {
 
   return {
     status: 200,
-    data: products
+    data: products.filter((product: Product) => product.user_id === data.userId)
   }
 }

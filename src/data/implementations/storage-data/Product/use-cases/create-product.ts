@@ -4,6 +4,8 @@ import { generateProductId } from "../utils/generateProductId"
 
 import { ProductConstants } from "../../../../constants/Product"
 
+import { Product } from "../../../../models/Product"
+
 import { ICreateProductData } from "../../../../dtos/product.dto"
 
 export async function CreateProduct(data: ICreateProductData) {
@@ -30,7 +32,7 @@ export async function CreateProduct(data: ICreateProductData) {
 
   return {
     status: 201,
-    data: newProducts
+    data: newProducts.filter((product: Product) => product.user_id === userId)
   }
 }
 

@@ -4,7 +4,7 @@ import { Product } from "../../../../models/Product"
 
 import { ProductConstants } from "../../../../constants/Product"
 
-export async function RemoveProduct(productId: number) {
+export async function RemoveProduct(productId: number, userId: string) {
   const products = JSON.parse(await Storage.get(ProductConstants.PRODUCTS_KEY) ?? "[]")
 
   const productIndex = products.findIndex((product: any) => product.id === productId)
@@ -24,6 +24,6 @@ export async function RemoveProduct(productId: number) {
 
   return {
     status: 200,
-    data: newProducts
+    data: newProducts.filter((product: Product) => product.user_id === userId)
   }
 }
