@@ -21,6 +21,8 @@ interface IProps {
   products: Product[]
   onChangeProductQuantity: (productId: number, type: "add" | "remove") => void
   onDeleteProduct: (productId: number) => void
+  searchText: string
+  setSearchText: (text: string) => void
 }
 
 export function Layout({
@@ -31,12 +33,18 @@ export function Layout({
   products,
   errors,
   onChangeProductQuantity,
-  onDeleteProduct
+  onDeleteProduct,
+  searchText,
+  setSearchText
 }: IProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Input placeholder="Pesquisa..." />
+        <Input
+          placeholder="Pesquisa..."
+          value={searchText}
+          onChangeText={setSearchText}
+        />
 
         <TouchableOpacity activeOpacity={0.8} onPress={navigateToConfig}>
           <Feather name="menu" size={24} color="black" />

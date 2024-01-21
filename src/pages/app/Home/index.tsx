@@ -7,6 +7,7 @@ import { useAuth } from "../../../contexts/Auth/hook"
 import { Product } from "../../../data/models/Product"
 
 import { validateFormData } from "./use-cases/validate-form-data"
+import { SearchProducts } from "./use-cases/search-products"
 
 import data from "../../../data"
 
@@ -106,9 +107,11 @@ export default function Home() {
       changeCreateProductFormData={changeCreateProductFormData}
       onSubmitCreateProduct={onSubmitCreateProduct}
       errors={errors}
-      products={products}
+      products={SearchProducts(searchText, products)}
       onDeleteProduct={onDeleteProduct}
       onChangeProductQuantity={onChangeProductQuantity}
+      searchText={searchText}
+      setSearchText={setSearchText}
     />
   )
 }
