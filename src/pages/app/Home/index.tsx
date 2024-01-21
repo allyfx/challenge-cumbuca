@@ -63,6 +63,8 @@ export default function Home() {
       Keyboard.dismiss()
 
       setProducts(response.data)
+
+      setErrors({})
     }
   }
 

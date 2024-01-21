@@ -61,12 +61,14 @@ export function Layout({
       <Text style={styles.title}>Novo produto</Text>
 
       <View style={styles.forms}>
-        <Input
-          placeholder="Nome do produto"
-          value={createProductFormData.name}
-          onChangeText={text => changeCreateProductFormData("name", text)}
-          error={errors?.name}
-        />
+        <View style={styles.formsRow}>
+          <Input
+            placeholder="Nome do produto"
+            value={createProductFormData.name}
+            onChangeText={text => changeCreateProductFormData("name", text)}
+            error={errors?.name}
+          />
+        </View>
 
         <View style={styles.formsRow}>
           <Input

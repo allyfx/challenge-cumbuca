@@ -34,11 +34,10 @@ export default StyleSheet.create({
   },
   forms: {
     maxHeight: verticalScale(210),
-    gap: verticalScale(16),
-    marginVertical: verticalScale(24)
+    gap: verticalScale(24),
+    marginBottom: verticalScale(24)
   },
   formsRow: {
-    marginTop: verticalScale(20),
     flexDirection: 'row',
     gap: horizontalScale(16)
   },
