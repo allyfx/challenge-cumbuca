@@ -29,7 +29,8 @@ export default StyleSheet.create({
   },
   order: {
     flexDirection: 'row',
-    height: verticalScale(88),
+    minHeight: verticalScale(58),
+    maxHeight: verticalScale(58),
   },
   forms: {
     maxHeight: verticalScale(210),
@@ -44,6 +45,6 @@ export default StyleSheet.create({
   productList: {
     gap: verticalScale(16),
     paddingBottom: '12%',
-    marginTop: verticalScale(8)
+    marginTop: verticalScale(16)
   }
 })

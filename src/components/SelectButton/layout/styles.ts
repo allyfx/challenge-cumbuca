@@ -8,9 +8,10 @@ export default StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#000',
-    padding: moderateScale(16),
-    margin: moderateScale(8),
-    height: moderateScale(49),
+    justifyContent: 'center',
+    paddingHorizontal: moderateScale(16),
+    marginHorizontal: moderateScale(8),
+    maxHeight: moderateScale(49),
   },
   selectedButton: {
     backgroundColor: '#000',
