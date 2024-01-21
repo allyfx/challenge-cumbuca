@@ -1,5 +1,7 @@
 import Storage from "../../../../../libs/Storage"
 
+import { RemoveProduct } from "./remove-product"
+
 import { ProductConstants } from "../../../../constants/Product"
 
 import { Product } from "../../../../models/Product"
@@ -16,6 +18,10 @@ export async function ChangeProductQuantity(data: IChangeProductQuantityData) {
       status: 404,
       error: "Produto não encontrado"
     }
+  }
+
+  if (data.type === "remove" && products[productIndex].quantity === 1) {
+    return RemoveProduct(data.productId)
   }
 
   const product = products[productIndex]

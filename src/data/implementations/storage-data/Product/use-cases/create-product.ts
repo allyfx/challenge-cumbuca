@@ -49,6 +49,13 @@ function validateData(data: ICreateProductData) {
     }
   }
 
+  if (quantity <= 0) {
+    return {
+      status: 400,
+      error: "Quantidade deve ser maior que 0"
+    }
+  }
+
   if (!userId) {
     return {
       status: 400,
