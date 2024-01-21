@@ -4,4 +4,5 @@ export interface Product {
   stock: number
   unit_price: number
   total_price: number
+  user_id: string
 }
