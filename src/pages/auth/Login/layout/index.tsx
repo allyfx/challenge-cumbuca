@@ -9,6 +9,7 @@ import generateStyles from "./styles"
 
 interface IProps {
   onSubmit: () => Promise<void>
+  onSubmitBiometry: () => Promise<void>
   password: string
   cpf: string
   changePassword: (password: string) => void
@@ -22,7 +23,8 @@ export function Layout({
   cpf,
   changePassword,
   changeCpf,
-  errors
+  errors,
+  onSubmitBiometry
 }: IProps) {
   const styles = generateStyles()
 
@@ -48,6 +50,7 @@ export function Layout({
       />
 
       <Button title="Entrar" onPress={onSubmit} />
+      <Button title="Usar biometria" onPress={onSubmitBiometry} />
     </View>
   )
 }

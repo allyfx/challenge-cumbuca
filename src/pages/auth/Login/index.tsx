@@ -45,11 +45,13 @@ export default function Login() {
     }
   }
 
-  async function tryToLoginUsingBiometry() {
+  async function tryToLoginUsingBiometry(clicked = false) {
     const useBiometry = await checkUseBiometry()
 
     if (useBiometry) {
       await logInUsingBiometry()
+    } else if(clicked) {
+      alert("Biometria desativada")
     }
   }
 
@@ -69,6 +71,7 @@ export default function Login() {
       changePassword={setPassword}
       changeCpf={setCpf}
       errors={errors}
+      onSubmitBiometry={() => tryToLoginUsingBiometry(true)}
     />
   )
 }
