@@ -16,7 +16,7 @@ export const Product = {
   async changeProductQuantity(data: IChangeProductQuantityData): Promise<IResponse> {
     return ChangeProductQuantity(data)
   },
-  async remove(productId: number): Promise<IResponse> {
-    return RemoveProduct(productId)
+  async remove(productId: number, userId: string): Promise<IResponse> {
+    return RemoveProduct(productId, userId)
   }
 }

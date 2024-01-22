@@ -85,7 +85,7 @@ export default function Home() {
       {
         text: "Sim",
         onPress: async () => {
-          const response = await data.Product.remove(productId)
+          const response = await data.Product.remove(productId, user?.id!)
 
           if (response.status === 200) {
             setProducts(response.data)

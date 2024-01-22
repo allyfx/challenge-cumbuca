@@ -19,6 +19,6 @@ export interface IDataDto {
     create: (data: ICreateProductData) => Promise<IResponse>
     getUserProducts: (userId: string) => Promise<IResponse>
     changeProductQuantity: (data: IChangeProductQuantityData) => Promise<IResponse>
-    remove: (productId: number) => Promise<IResponse>
+    remove: (productId: number, userId: string) => Promise<IResponse>
   }
 }

@@ -43,7 +43,7 @@ describe('Product Test - Storage', () => {
   })
 
   it("should remove a product", async () => {
-    const response = await data.Product.remove(1)
+    const response = await data.Product.remove(1, "test-user-id")
 
     expect(response.status).toBe(200)
   })
@@ -59,7 +59,7 @@ describe('Product Test - Storage', () => {
   })
 
   it("should not remove a product that doesn't exist", async () => {
-    const response = await data.Product.remove(1)
+    const response = await data.Product.remove(1, "test-user-id")
 
     expect(response.status).toBe(404)
   })
