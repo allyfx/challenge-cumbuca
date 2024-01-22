@@ -41,7 +41,7 @@ export function ProductItem({ product, onChangeQuantity, onDelete, onLongPress }
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity activeOpacity={0.8} onPress={() => onDelete(product.id)}>
+        <TouchableOpacity testID="remove-product" activeOpacity={0.8} onPress={() => onDelete(product.id)}>
           <Feather name="trash-2" size={28} color="red" />
         </TouchableOpacity>
       </View>

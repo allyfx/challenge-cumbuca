@@ -1,6 +1,8 @@
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react-native'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react-native'
 
+import ThemeProvider from '../../contexts/Theme'
 import AuthProvider from '../../contexts/Auth'
+
 import Login from '../../pages/auth/Login'
 
 import data from '../../data'
@@ -21,7 +23,13 @@ describe('Login Page', () => {
   })
 
   beforeEach(async () => {
-    await waitFor(() => render(<AuthProvider><Login /></AuthProvider>))
+    await waitFor(() => render(
+      <ThemeProvider>
+        <AuthProvider>
+          <Login />
+        </AuthProvider>
+      </ThemeProvider>
+    ))
   })
 
   it('should login with success', async () => {

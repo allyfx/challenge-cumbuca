@@ -25,7 +25,8 @@ describe('Product Test - Storage', () => {
   it("should change product quantity", async () => {
     const response = await data.Product.changeProductQuantity({
       productId: 1,
-      type: "add"
+      type: "add",
+      userId: "test-user-id"
     })
 
     expect(response.status).toBe(200)
@@ -33,7 +34,8 @@ describe('Product Test - Storage', () => {
 
     const response2 = await data.Product.changeProductQuantity({
       productId: 1,
-      type: "remove"
+      type: "remove",
+      userId: "test-user-id"
     })
 
     expect(response2.status).toBe(200)
@@ -49,7 +51,8 @@ describe('Product Test - Storage', () => {
   it("should not change product quantity for a product that doesn't exist", async () => {
     const response = await data.Product.changeProductQuantity({
       productId: 1,
-      type: "add"
+      type: "add",
+      userId: "test-user-id"
     })
 
     expect(response.status).toBe(404)
